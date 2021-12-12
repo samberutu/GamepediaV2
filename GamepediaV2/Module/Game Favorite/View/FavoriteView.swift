@@ -42,6 +42,12 @@ struct FavoriteView: View {
                             }
                         }
                     }
+                    Button {
+                        print(presenter.favorite)
+                    } label: {
+                        Text("Test")
+                    }
+
                 }
             }
             .onAppear {
