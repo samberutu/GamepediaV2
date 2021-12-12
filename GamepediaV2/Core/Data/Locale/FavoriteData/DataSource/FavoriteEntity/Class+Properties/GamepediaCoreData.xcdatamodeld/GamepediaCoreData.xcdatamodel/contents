@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Favorite" representedClassName="Favorite" syncable="YES">
+        <attribute name="backgroundImage" optional="YES" attributeType="String"/>
+        <attribute name="dateSelected" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="rating" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="ratingTop" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="released" optional="YES" attributeType="String"/>
+        <attribute name="reviewsCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="shortScreenshots" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ShortScreenshotCoredata" inverseName="favorite" inverseEntity="ShortScreenshotCoredata"/>
+    </entity>
+    <entity name="ShortScreenshotCoredata" representedClassName="ShortScreenshotCoredata" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <relationship name="favorite" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Favorite" inverseName="shortScreenshots" inverseEntity="Favorite"/>
+    </entity>
+    <elements>
+        <element name="Favorite" positionX="-63" positionY="-18" width="128" height="164"/>
+        <element name="ShortScreenshotCoredata" positionX="-54" positionY="45" width="128" height="74"/>
+    </elements>
+</model>
