@@ -18,5 +18,3 @@ jobs:
     - name: Build
       run: |
        xcodebuild clean build -project "GamepediaV2.xcodeproj" -scheme "GamepediaV2" -destination "platform=iOS Simulator,name=iPhone 12,OS=latest" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO 
-    - name: Run tests
-      run: swift test -v
