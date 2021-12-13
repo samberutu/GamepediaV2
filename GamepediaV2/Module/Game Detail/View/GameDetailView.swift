@@ -61,7 +61,7 @@ struct GameDetailView: View {
                                 }
                             } else {
                                 Button {
-                                    favoritePresenter.addGameFavorite(game: presenter.detail, screenshot: GameMapper.mapShortSSModelToFavoriteSSModel(ss: screenshot))
+                                    favoritePresenter.addGameFavorite(game: presenter.detail, screenshot: GameMapper.mapDomainScreenshotsToDetailScreenshotsModel(domainScreenshots: screenshot))
                                     favoritePresenter.isFavoriteGame(id: gameId)
                                 } label: {
                                     Image(systemName: "suit.heart" )

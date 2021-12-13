@@ -65,7 +65,7 @@ extension SearchGameView {
             if !searchPresenter.list.isEmpty {
                 List {
                     ForEach(searchPresenter.list, id: \.id) { game in
-                        let domainSs = GameMapper.mapSSSearchModuleToDomain(ss: game.shortScreenshots)
+                        let domainSs = GameMapper.mapSearchScreenshotsModelToDomainScreenshots(searchScreenshotsModel: game.shortScreenshots)
                         self.linkBuilder(for: String(game.id), screenShots: domainSs) {
                             Text(game.name)
                                 .lineLimit(1)

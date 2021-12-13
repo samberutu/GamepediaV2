@@ -28,7 +28,7 @@ struct HomeView: View {
                 } else {
                     List {
                         ForEach(presenter.list, id: \.id) { game in
-                            let domainSs = GameMapper.mapSSHomeModuleToDomain(ss: game.shortScreenshots)
+                            let domainSs = GameMapper.mapHomeScreenshotsModelToDomainScreenshots(homeScreenshotsModel: game.shortScreenshots)
                             self.linkBuilder(for: String(game.id), screenShots: domainSs) {
                                 GameCard(game: game)
                             }

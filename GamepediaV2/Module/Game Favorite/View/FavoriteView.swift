@@ -36,18 +36,19 @@ struct FavoriteView: View {
                 } else {
                     List {
                         ForEach(presenter.favorite, id: \.id) { game in
-                            let domainModel = GameMapper.mapFavoriteModuleModelToHomeGameModel(favorite: game)
-                            self.linkBuilder(for: game.id, screenShots: GameMapper.mapFavoriteSsToShortSsModel(ss: game.shortScreenshots)) {
+                            let domainModel = GameMapper.mapFavoriteModelToHomeModel(favorite: game)
+                            self.linkBuilder(for: game.id, screenShots: GameMapper.mapFavoriteScreenshotsModelToDomainScreenshots(favoriteScreenshotsModel: game.shortScreenshots)) {
                                 GameCard(game: domainModel)
                             }
                         }
+                        .onDelete { indexSet in
+                            let gameSelected = indexSet.map { self.presenter.favorite[$0].id }
+                            DispatchQueue.main.async(execute: {
+                                self.presenter.deleteGameFavorite(id: gameSelected.first ?? "0")
+                                self.presenter.getGamesFavorite()
+                            })
+                        }
                     }
-                    Button {
-                        print(presenter.favorite)
-                    } label: {
-                        Text("Test")
-                    }
-
                 }
             }
             .onAppear {
