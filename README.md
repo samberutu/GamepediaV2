@@ -6,5 +6,4 @@
   4. Dependency Injection (Manual) ✅
   5. Reactive Programming (Combine) ✅
   6. Networking ✅
-  
-### Halaman Utama
+
